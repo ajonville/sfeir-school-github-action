@@ -5,6 +5,6 @@ on:
 
 jobs:
   docker-images:
-    uses: ./.github/workflows/ex4.yml
+    uses: ./.github/workflows/ex4_reusable_workflow.yaml
     with:
       node_version: 14
