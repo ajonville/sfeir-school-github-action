@@ -1,0 +1,21 @@
+name: npm test
+on: 
+  workflow_dispatch:
+               
+jobs:
+  install-node:               # Name of the job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: install node
+        run: npm install
+  setup-node:               # Name of the job 1
+    needs: install-node
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+#      - run: npm ci
+      - run: npm test
