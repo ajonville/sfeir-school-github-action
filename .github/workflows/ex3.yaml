@@ -6,7 +6,7 @@ jobs:
   run-npm-test:
     runs-on: ubuntu-latest
     steps:
-      - name: amener le code vers les VM suivantes
+      - name: Recupérer mes sources et notamment la source Node
         uses: actions/checkout@v3
       - name: Set the value
         id: step_one
@@ -22,4 +22,5 @@ jobs:
         run: |
           npm install
           npm test
+          node -v
 
