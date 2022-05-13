@@ -9,7 +9,7 @@ jobs:
         - name: Cache node modules
           uses: actions/cache@v3
           env:
-            cache-name: cache-node-modules-v2
+            cache-name: cache-node-modules-v3
           with:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
@@ -33,7 +33,7 @@ jobs:
         - name: Cache node modules
           uses: actions/cache@v3    
           env:
-            cache-name: cache-node-modules
+            cache-name: cache-node-modules-v3
           with:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
