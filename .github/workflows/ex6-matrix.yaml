@@ -1,4 +1,4 @@
-name: Ex6-matrix
+name:   Ex6-matrix
 on: 
   workflow_dispatch:
 
