@@ -1,0 +1,15 @@
+name: Reusable Workflow user
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-images:
+    uses: ajonville/sfeir-school-github-action/.github/workflows/ex4.yml@main
+    env:
+      node_version: 14
+    with:
+      node_version: ${{ steps.node_version }}
+    secrets:
+      registry_username: ${{secrets.REGISTRY_USERNAME}}
+      registry_password: ${{secrets.REGISTRY_PASSWORD}}
