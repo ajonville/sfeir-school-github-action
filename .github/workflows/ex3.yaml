@@ -6,12 +6,15 @@ jobs:
   run-npm-test:
     runs-on: ubuntu-latest
     steps:
-        - name: checkout
-          uses: actions/checkout@v3
+        - name: Set the value
+          id: step_one
+          run: |
+            echo "NODE_VERSION=14" >> $GITHUB_ENV
+
         - name : setup node
           uses: actions/setup-node@v3
           with:
-            node-version: 'lts/*'
+            node-version: "${{ env.action_state }}"
         - name: run test
           shell: bash
           run: |
