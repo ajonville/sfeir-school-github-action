@@ -14,10 +14,7 @@ jobs:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
             key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
-              ${{ runner.os }}-build-
-              ${{ runner.os }}-
+
         - name: checkout
           uses: actions/checkout@v2
         - name : setup node
@@ -41,10 +38,7 @@ jobs:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
             key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
-              ${{ runner.os }}-build-
-              ${{ runner.os }}-
+
         - name: checkout
           uses: actions/checkout@v2
         - name : setup node
