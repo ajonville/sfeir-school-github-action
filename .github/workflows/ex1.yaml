@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: install node
         run: npm install
-      - uses: actions/checkout@v3
+      - name: amener le code vers les VM suivantes
+        uses: actions/checkout@v3
   setup-node:               # Name of the job 1
     needs: install-node
     runs-on: ubuntu-latest
@@ -17,6 +18,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
-#      - run: npm ci
-      - run: npm test
-      - uses: actions/checkout@v3
+      - name: configurer les modules de node
+        run: npm ci
+      - name: tester node
+        run: npm test
+      - name: retourner l'état du repo vers les VM suivantes
+        uses: actions/checkout@v3
