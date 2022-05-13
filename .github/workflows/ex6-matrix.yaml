@@ -1,4 +1,4 @@
-name: npm test
+name: npm test - Ex6-matrix
 on: 
   workflow_dispatch:
 
