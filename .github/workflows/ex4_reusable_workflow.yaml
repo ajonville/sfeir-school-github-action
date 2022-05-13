@@ -5,11 +5,6 @@ on:
       node_version:
         required: true
         type: string
-    secrets:
-      registry_username:
-        required: true
-      registry_password:
-        required: true
 
 jobs:
   run-npm-test:
