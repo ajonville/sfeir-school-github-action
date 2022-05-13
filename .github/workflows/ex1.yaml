@@ -6,14 +6,16 @@ jobs:
   install-node:               # Name of the job 1
     runs-on: ubuntu-latest
     steps:
-      - name: install node
-        run: npm install
       - name: amener le code vers les VM suivantes
         uses: actions/checkout@v3
+      - name: install node
+        run: npm install
   setup-node:               # Name of the job 1
     needs: install-node
     runs-on: ubuntu-latest
     steps:
+      - name: amener le code vers les VM suivantes
+        uses: actions/checkout@v3
       - name: setup node
         uses: actions/setup-node@v3
         with:
@@ -22,5 +24,4 @@ jobs:
         run: npm ci
       - name: tester node
         run: npm test
-      - name: retourner l'état du repo vers les VM suivantes
-        uses: actions/checkout@v3
+
