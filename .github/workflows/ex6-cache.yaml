@@ -9,11 +9,11 @@ jobs:
         - name: Cache node modules
           uses: actions/cache@v3
           env:
-            cache-name: cache-node-modules-v3
+            cache-name: cache-node-modules-v4
           with:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('*/package-lock.json') }}
 
         - name: checkout
           uses: actions/checkout@v2
@@ -33,11 +33,11 @@ jobs:
         - name: Cache node modules
           uses: actions/cache@v3    
           env:
-            cache-name: cache-node-modules-v3
+            cache-name: cache-node-modules-v4
           with:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
             path: node_modules
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('*/package-lock.json') }}
 
         - name: checkout
           uses: actions/checkout@v2
