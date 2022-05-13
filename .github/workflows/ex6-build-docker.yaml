@@ -1,4 +1,4 @@
-name: npm test - Ex6-docker
+name: Ex6-docker
 on: 
   workflow_dispatch:
 

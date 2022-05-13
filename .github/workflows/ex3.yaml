@@ -1,4 +1,4 @@
-name: interact with Github API
+name: interact with Github API - Ex3
 on: 
   pull_request:
 
