@@ -6,6 +6,18 @@ jobs:
   run-npm-install:
     runs-on: ubuntu-latest
     steps:
+        - name: Cache node modules
+          uses: actions/cache@v3
+          env:
+            cache-name: cache-node-modules
+          with:
+            # node_modules cache files are stored in `~/node_modules` on Linux/macOS
+            path: node_modules
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-build-${{ env.cache-name }}-
+              ${{ runner.os }}-build-
+              ${{ runner.os }}-
         - name: checkout
           uses: actions/checkout@v2
         - name : setup node
@@ -16,30 +28,18 @@ jobs:
           shell: bash
           run: |
             npm install
-        - name: Cache node modules
-          uses: actions/cache@v3
-          env:
-            cache-name: cache-node-modules
-          with:
-            # node_modules cache files are stored in `~/node_modules` on Linux/macOS
-            path: ~/node_modules
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
-              ${{ runner.os }}-build-
-              ${{ runner.os }}-
 
   run-npm-test:
     runs-on: ubuntu-latest
     needs: run-npm-install
     steps:
         - name: Cache node modules
-          uses: actions/cache@v3
+          uses: actions/cache@v3    
           env:
             cache-name: cache-node-modules
           with:
             # node_modules cache files are stored in `~/node_modules` on Linux/macOS
-            path: ~/node_modules
+            path: node_modules
             key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
               ${{ runner.os }}-build-${{ env.cache-name }}-
