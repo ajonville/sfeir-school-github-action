@@ -5,6 +5,6 @@ on:
 
 jobs:
   docker-images:
-    uses: ajonville/sfeir-school-github-action/.github/workflows/ex4.yml@main
+    uses: ./.github/workflows/ex4.yml
     with:
       node_version: 14
